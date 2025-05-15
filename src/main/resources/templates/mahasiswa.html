@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>NIM</th>
+                <th>NAMA</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="mahasiswa : ${mahasiswaList}">
+                <td th:text="${mahasiswa.id}"></td>
+                <td th:text="${mahasiswa.nim}"></td>
+                <td th:text="${mahasiswa.nama}"></td>
+                <td>
+                    <form action="#" th:action="@{/mahasiswa/edit/{id}(id=${mahasiswa.id})}" method="get">
+                        <button type="submit">Edit</button>
+                    </form>
+                <td>
+                    <form action="#" th:action="@{/mahasiswa/delete/{id}(id=${mahasiswa.id})}" method="post">
+                        <button type="submit">Delete</button>
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+
+        <form action="#" th:action="@{/mahasiswa}" method="post">
+            <input type="text" name="nim" placeholder="NIM" required>
+            <input type="text" name="nama" placeholder="Nama" required>
+            <button type="submit">Tambah</button>
+</body>
+</html>

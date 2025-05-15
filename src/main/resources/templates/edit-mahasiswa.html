@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="#" th:action="@{/mahasiswa/update}" method="post">
+        <input type="hidden" name="id" th:value="${mahasiswa.id}">
+        <input type="text" name="nim" th:value="${mahasiswa.nim}" placeholder="NIM" required>
+        <input type="text" name="nama" th:value="${mahasiswa.nama}" placeholder="Nama" required>
+        <button type="submit">Update</button>
+</body>
+</html>
